@@ -47,7 +47,7 @@ public class Sentence extends AbstractSentence {
         }
         wrds[i] = super.getSentence().substring(start, end);
         if (i < wrds.length - 1) {
-          start = blanks.get(i);
+          start = blanks.get(i) + 1;
         }
       }
       return wrds;
