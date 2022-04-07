@@ -4,19 +4,20 @@ import java.util.*;
 import edu.jenks.dist.barrons.AbstractSentence;
 
 public class Sentence extends AbstractSentence {
-
+  private String sentence;
+  
   public Sentence() {
-    super.setSentence(null);
+    sentence = null;
   }
 
   public Sentence(String snt) {
-    super.setSentence(snt);
+    sentence = snt;
   }
 
   public List<Integer> getBlankPositions() {
     List<Integer> spaces = new ArrayList<>();
-    for (int i = 0; i < super.getSentence().length(); i++) {
-      if (super.getSentence().substring(i, i + 1).equals(" ")) {
+    for (int i = 0; i < sentence.length(); i++) {
+      if (sentence.substring(i, i + 1).equals(" ")) {
         spaces.add(i);
       }
     }
@@ -25,8 +26,8 @@ public class Sentence extends AbstractSentence {
 
   public int countWords() {
     int wrdcnt = 0;
-    for (int i = 0; i < super.getSentence().length(); i++) {
-      if (super.getSentence().substring(i, i + 1).equals(" ")) {
+    for (int i = 0; i < sentence.length(); i++) {
+      if (sentence.substring(i, i + 1).equals(" ")) {
         wrdcnt++;
       }
     }
@@ -43,16 +44,16 @@ public class Sentence extends AbstractSentence {
         if (i < wrds.length - 1) {
           end = blanks.get(i);
         } else {
-          end = super.getSentence().length();
+          end = sentence.length();
         }
-        wrds[i] = super.getSentence().substring(start, end);
+        wrds[i] = sentence.substring(start, end);
         if (i < wrds.length - 1) {
-          start = blanks.get(i);
+          start = blanks.get(i) + 1;
         }
       }
       return wrds;
     }
-    wrds[0] = super.getSentence();
+    wrds[0] = sentence;
     return wrds;
   }
 
