@@ -6,11 +6,11 @@ import edu.jenks.dist.barrons.AbstractSentence;
 public class Sentence extends AbstractSentence {
 
   public Sentence() {
-    super.setSentence(null);
+    super();
   }
 
   public Sentence(String snt) {
-    super.setSentence(snt);
+    super(snt);
   }
 
   public List<Integer> getBlankPositions() {
